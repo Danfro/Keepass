@@ -201,7 +201,7 @@ UITK.Page {
         }
         UITK.Label {
             Layout.fillWidth: true
-            text: errorMsg
+            text: parseErrorMessages(errorMsg)
             wrapMode: Text.WordWrap
         }
     }
@@ -229,6 +229,14 @@ UITK.Page {
         busy = true
         python.call('kp.open_db',
                     [settings.lastDB, settings.lastKey, password.text])
+    }
+
+    //try to give a userfriendly feedback if a known error message does occur
+    function parseErrorMessages(message) {
+        if (message === "KDBX error: Database integrity error: Cryptography error: BlockMode { e: BlockModeError }") {
+            message = i18n.ctr("error message when wrong password is entered","wrong password, please try again")
+        }
+        return message
     }
 
     Python {
