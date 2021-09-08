@@ -6,7 +6,7 @@ import QtGraphicalEffects 1.0
 
 UITK.ListItem {
     property bool passwordVisible: false
-    height: units.gu(11)
+    height: units.gu(12)
     anchors.left: parent.left
     anchors.right: parent.right
 
@@ -103,32 +103,44 @@ UITK.ListItem {
         Column {
             id: detailsColumn
             width: parent.width - parent.spacing - units.gu(6)
+            spacing: units.gu(0.1)
             Text {
                 width: parent.width
                 elide: Text.ElideRight
                 text: title
-                font.pointSize: units.gu(1.5)
+                // font.pointSize: units.gu(1.5)
+                font.bold: true
                 color: theme.palette.normal.foregroundText
             }
 
             Text {
                 width: parent.width
                 elide: Text.ElideRight
-                color: theme.palette.normal.backgroundTertiaryText
+                color: theme.palette.normal.foregroundText
                 text: username
-            }
-
-            Text {
-                text: url
-                width: parent.width
-                elide: Text.ElideRight
-                color: theme.palette.normal.backgroundTertiaryText
-                font.pixelSize: units.gu(1.5)
+                visible: username != ""
             }
 
             Text {
                 text: passwordVisible ? password : '••••••••'
+                visible: password != ""
+                color: theme.palette.normal.foregroundText
+            }
+
+            Rectangle {
+                        id: delegateSpacer
+                        width: parent.width
+                        height: units.gu(1)
+                        color: "transparent"
+                    }
+
+            Text {
+                text: url
+                visible: url != ""
+                width: parent.width
+                elide: Text.ElideRight
                 color: theme.palette.normal.backgroundTertiaryText
+                font.pixelSize: units.gu(1.5)
             }
         }
     }
