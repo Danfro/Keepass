@@ -1,6 +1,8 @@
-clickable_minimum_required: 7
+clickable_minimum_required: '8.0.0'
 builder: cmake
-kill: qmlscene
 dependencies_host:
 - python3-pip
 - python3-wheel
+framework: ubuntu-sdk-20.04
+kill: 'qmlscene'
+ignore_review_errors: true

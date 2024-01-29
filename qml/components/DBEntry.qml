@@ -142,6 +142,15 @@ UITK.ListItem {
                 color: theme.palette.normal.backgroundTertiaryText
                 font.pixelSize: units.gu(1.5)
             }
+
+            Text {
+                text: notes
+                visible: notes != ""
+                width: parent.width
+                elide: Text.ElideRight
+                color: theme.palette.normal.backgroundTertiaryText
+                font.pixelSize: units.gu(1.5)
+            }
         }
     }
 

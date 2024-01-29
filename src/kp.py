@@ -90,12 +90,14 @@ def get_entries(search_term):
     for entry in ENTRIES:
         if not (search_term in entry.username.lower() or
                 search_term in entry.url.lower() or
-                search_term in entry.title.lower()):
+                search_term in entry.title.lower() or
+                search_term in entry.notes.lower()):
             continue
         _path = get_icon_path(domain(entry.url))
         if not _path.is_file():
             _path = PLACEHOLDER_ICON
         _entry = {'url': entry.url,
+                  'notes': entry.notes,
                   'username': entry.username,
                   'title': entry.title,
                   'password': entry.password,
