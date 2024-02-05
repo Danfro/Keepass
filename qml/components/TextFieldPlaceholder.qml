@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import Ubuntu.Components 1.3 as UITK
+import Lomiri.Components 1.3 as UITK
 
 Column {
     property alias placeholder: label.text
