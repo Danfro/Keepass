@@ -180,7 +180,7 @@ UITK.Page {
                     UITK.Action {
                         id: showPasswordAction
                         checkable: true
-                        iconSource: checked ? "../../assets/visibility_off.png" : "../../assets/visibility.png"
+                        iconName: checked ? "private-browsing" : "private-browsing-exit"
                     }
                 ]
             }
