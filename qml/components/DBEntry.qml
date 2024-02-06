@@ -6,7 +6,7 @@ import QtGraphicalEffects 1.0
 
 UITK.ListItem {
     property bool passwordVisible: false
-    height: units.gu(12)
+    height: entryDetails.childrenRect.height + units.gu(3) //margins and spacing
     anchors.left: parent.left
     anchors.right: parent.right
 
@@ -85,11 +85,13 @@ UITK.ListItem {
     }
 
     Row {
+        id: entryDetails
         anchors.leftMargin: units.gu(2)
+        anchors.left: parent.left
         anchors.rightMargin: units.gu(2)
+        anchors.right: parent.right
+        anchors.top: parent.top
         anchors.topMargin: units.gu(1)
-        anchors.bottomMargin: units.gu(1)
-        anchors.fill: parent
 
         spacing: units.gu(1)
         Image {
@@ -104,6 +106,7 @@ UITK.ListItem {
             id: detailsColumn
             width: parent.width - parent.spacing - units.gu(6)
             spacing: units.gu(0.1)
+
             Text {
                 width: parent.width
                 elide: Text.ElideRight
@@ -138,7 +141,7 @@ UITK.ListItem {
                 text: url
                 visible: url != ""
                 width: parent.width
-                elide: Text.ElideRight
+                wrapMode: Text.Wrap
                 color: theme.palette.normal.backgroundTertiaryText
                 font.pixelSize: units.gu(1.5)
             }
@@ -147,7 +150,7 @@ UITK.ListItem {
                 text: notes
                 visible: notes != ""
                 width: parent.width
-                elide: Text.ElideRight
+                wrapMode: Text.Wrap
                 color: theme.palette.normal.backgroundTertiaryText
                 font.pixelSize: units.gu(1.5)
             }
