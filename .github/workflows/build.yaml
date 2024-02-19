@@ -16,7 +16,7 @@ jobs:
           submodules: 'true'
       - name: Parse version
         run: |
-          echo ARTIFACT_VERSION=$(cat manifest.json.in | grep "\"version\": "  | awk -F'"' '$0=$2') >> $GITHUB_ENV
+          echo ARTIFACT_VERSION=$(cat manifest.json.in | grep "\"version\": "  | awk -F'"' '$0=$4') >> $GITHUB_ENV
       - name: Install clickable
         run: |
           python3 -m pip install clickable-ut
